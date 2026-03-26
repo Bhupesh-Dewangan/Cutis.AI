@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  background: #ebf3f5;
+  background: linear-gradient(128deg, #ebf3f5 10%, #c5e2f0 100%);
+}
+
+.hero-container {
+  position: relative;
+  width: 100vw;
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
+}
+
+.left {
+  width: 95%;
+}
+
+.right {
+  top: 0;
+  right: 0;
+  width: 5%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: fixed;
+  z-index: 9;
+}
+
+.right img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: auto;
+  display: block;
+  margin-top: 20px;
+  margin-left: -10px;
+  margin-right: 10px;
+}
+
+.right-top {
+  height: 50%;
+  width: 100%;
+  background: linear-gradient(#9ae0d3 10%, #35a7a0 100%);
+}
+.right-bottom {
+  height: 50%;
+  width: 100%;
+  background: linear-gradient(#89c8dd 10%, #73adc1 100%);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(128deg, #ebf3f5 10%, #c5e2f0 100%);
+  z-index: 8;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  width: 40px;
+}
+
+.title {
+  font-family: "Galindo";
+  font-size: 16px;
+  color: #000000;
+  margin-left: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 100px;
+}
+.nav-links a {
+  font-family: "Inter";
+  font-weight: 500;
+  text-decoration: none;
+  color: #686868;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: #000000;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 30px 100px;
+  height: 100%;
+  width: 100%;
+}
+
+.hero-text {
+  max-width: 60%;
+}
+
+.hero-text h1 {
+  font-family: "Inria Serif", serif;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.detect-h1 {
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 2%;
+}
+
+.skin-h1 {
+  font-size: 60px;
+  font-weight: 400;
+  font-style: normal;
+  color: #000000;
+  letter-spacing: -0.04em;
+}
+
+.tag-line {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.intro-p {
+  color: #42454a;
+  font-family: "Inter";
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  text-align: justify;
+  font-weight: 500;
+  margin-bottom: 10px;
+  line-height: 31.2px;
+}
+
+.desc-p {
+  color: #42454a;
+  font-family: "Inter";
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  text-align: justify;
+  font-weight: 500;
+  line-height: 31.2px;
+}
+
+.start-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #5ec6b8;
+  color: #fff;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 26px;
+  border: #9ae0d3 2px solid;
+}
+
+.start-btn:hover {
+  background-color: #4db0a3;
+}
+
+.hero-image {
+  width: 400px;
+  height: auto;
+}
+
+.rotated-text {
+  position: absolute;
+  bottom: 7%;
+  transform: rotate(90deg) translate(-50%, -50%);
+  transform-origin: center;
+
+  font-family: "Barlow";
+  transform-origin: center;
+  letter-spacing: 1.5em;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: auto;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.bg {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(128deg, #d8e6ef 10%, #b4d8e4 100%);
+  backdrop-filter: blur(10px);
+}
+
+.circle1 {
+  width: 1500px;
+  height: 1500px;
+  bottom: 2%;
+  left: 40%;
+}
+
+.circle2 {
+  width: 500px;
+  height: 500px;
+  bottom: -60%;
+  left: 5%;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background-color: rgba(125, 185, 206, 0.15);
+  border: 2px solid rgba(142, 231, 255, 0.36);
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  padding: 20px;
+}
+
+.label span {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  color: #000000;
+  font-weight: 500;
+  font-style: italic;
+}
