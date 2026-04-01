@@ -68,6 +68,7 @@ body {
   top: 0;
   background: linear-gradient(128deg, #ebf3f5 10%, #c5e2f0 100%);
   z-index: 8;
+  width: 95%;
 }
 
 .logo {
@@ -256,4 +257,369 @@ body {
   color: #000000;
   font-weight: 500;
   font-style: italic;
+}
+
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  gap: 20px;
+}
+
+.upload-box h1 {
+  color: #000;
+  text-align: center;
+  font-family: "Inria Serif";
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.49669rem; /* 59.867% */
+  text-transform: uppercase;
+}
+
+.upload-box p {
+  color: #42454a;
+  font-family: "Inter";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.95225rem; /* 156.181% */
+  letter-spacing: 0.0125rem;
+}
+
+.upload-container {
+  border-radius: 1.06944rem;
+  border: 5px solid #99c6d4e4;
+  background: rgba(125, 185, 206, 0.15);
+  backdrop-filter: blur(13.058648109436035px);
+  width: 43.8125rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 10px auto 10px;
+  cursor: pointer;
+  gap: 10px;
+  padding: 10px;
+}
+
+.upload-text {
+  color: #42454a;
+  font-family: Inter;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.95225rem; /* 173.535% */
+  letter-spacing: 0.01125rem;
+  margin-left: 50px;
+}
+
+/* DROP ZONE – (drag & drop image area) */
+.drop-zone {
+  border: 3px dashed #fff;
+  background: rgba(217, 217, 217, 0.2);
+  width: 36.0625rem;
+  gap: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+.drop-zone.drag-over {
+  background: rgba(217, 217, 217, 0.4);
+  border-color: #5ec6b8;
+}
+
+.upload-img-icon {
+  width: 8rem;
+  height: 8rem;
+}
+
+.drop-zone-title {
+  color: #42454a;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5rem; /* 133.333% */
+  letter-spacing: 0.01125rem;
+}
+
+.drop-zone-sub {
+  font-size: 0.9rem;
+  color: #5e6f8d;
+  text-align: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5rem; /* 133.333% */
+  letter-spacing: 0.01125rem;
+}
+
+.browse-button {
+  border-radius: 0.5rem;
+  border: 2px solid #5ec6b8;
+  background: #6edacb;
+  padding: 0.5rem 1.5rem;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.0525rem;
+  text-transform: uppercase;
+}
+
+.browse-button:hover {
+  background: #5ec6b8;
+  border-color: #4db0a3;
+}
+
+/* hidden file input */
+#fileInput {
+  display: none;
+}
+
+/* file list & progress area (inspired by File.png 30.07% layout) */
+.file-list {
+  border-radius: 0.5rem;
+  border: 2px solid #fff;
+  background: rgba(217, 217, 217, 0.2);
+}
+
+.btn-secondary {
+  border-radius: 0.5rem;
+  border: 2px solid #fff;
+  background: rgba(110, 218, 203, 0.1);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  text-align: center;
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.0525rem;
+  text-transform: uppercase;
+}
+
+.btn-secondary:hover {
+  background: rgba(110, 218, 203, 0.2);
+}
+
+.btn-primary {
+  border-radius: 0.5rem;
+  border: 2px solid #fff;
+  background: #008fbb;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.0525rem;
+  text-transform: uppercase;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn-primary:hover {
+  background: #0079a3;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.file-upload-progress {
+  border-radius: 0.5rem;
+  border: 2px solid #fff;
+  background: rgba(217, 217, 217, 0.2);
+  width: 36.0625rem;
+  height: 4.125rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+.file-upload-progress {
+  margin-top: 1rem;
+}
+
+/* File list container - single file only */
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Individual file item - matches the reference design */
+.file-item {
+  background: #ffffff;
+  border: 1px solid #eef2f8;
+  border-radius: 1rem;
+  padding: 0.875rem 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.file-item:hover {
+  border-color: #cbdff5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* File info row */
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+/* File icon - matches the image icon style */
+.file-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #f0f7ff 0%, #e8f0fe 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* File details wrapper */
+.file-details {
+  flex: 1;
+  min-width: 0;
+}
+
+/* File name styling */
+.file-name {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: "Inter", monospace;
+}
+
+/* Progress wrapper - shows bar and percentage */
+.progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Progress bar background */
+.progress-bar-bg {
+  flex: 1;
+  height: 8px;
+  background: #eef2f8;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Progress fill - animated */
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  border-radius: 20px;
+  width: 0%;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* Shimmer animation for active uploads */
+.progress-fill.uploading {
+  background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 45%, #3b82f6 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Percentage text - matches "30.07%" style */
+.progress-percent {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: "Inter", monospace;
+  color: #3b82f6;
+  min-width: 58px;
+  text-align: right;
+  letter-spacing: 0.3px;
+}
+
+/* Completed status - green */
+.progress-percent.completed {
+  color: #10b981;
+}
+
+/* Error status */
+.progress-percent.error {
+  color: #ef4444;
+}
+
+/* Status icon */
+.file-status-icon {
+  width: 28px;
+  text-align: center;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+/* File size and additional info */
+.file-meta {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.file-size {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Empty state styling */
+.empty-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  font-family: "Inter", monospace;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
