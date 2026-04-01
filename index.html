@@ -18,21 +18,21 @@
       <div class="circle circle1"></div>
       <div class="circle circle2"></div>
     </div>
+    <div class="topbar">
+      <div class="logo">
+        <img src="images/logo.png" alt="logo" class="logo-image" />
+        <span class="title">CUTIS.AI</span>
+      </div>
+      <div class="nav-links">
+        <a href="#">HOME</a>
+        <a href="#">SKIN DISEASES</a>
+        <a href="#">UPLOAD</a>
+        <a href="#">TEAM</a>
+        <a href="#">CONTACT</a>
+      </div>
+    </div>
     <div class="hero-container">
       <div class="left">
-        <div class="topbar">
-          <div class="logo">
-            <img src="images/logo.png" alt="logo" class="logo-image" />
-            <span class="title">CUTIS.AI</span>
-          </div>
-          <div class="nav-links">
-            <a href="#">HOME</a>
-            <a href="#">SKIN DISEASES</a>
-            <a href="#">UPLOAD</a>
-            <a href="#">TEAM</a>
-            <a href="#">CONTACT</a>
-          </div>
-        </div>
         <div class="content">
           <div class="left-content">
             <div class="hero-text">
@@ -65,7 +65,6 @@
             </div>
           </div>
         </div>
-
       </div>
 
       <div class="right">
@@ -75,5 +74,38 @@
         <p class="rotated-text">AI SKIN ANALYSIS</p>
       </div>
     </div>
+
+    <div class="upload-box">
+      <h1>Upload Photo for Analysis</h1>
+      <p>Upload a close-up, clear image of the affected area</p>
+      <div class="upload-container">
+        <div class="upload-text">Upload image</div>
+        <div class="drop-zone" id="dropZone">
+          <img
+            src="images/upload-img-icon.png"
+            alt="upload-svg"
+            class="upload-img-icon"
+          />
+          <div class="drop-zone-title">Drag & drop your Image here</div>
+          <div class="drop-zone-sub">or</div>
+          <button class="browse-button" id="browseBtn" type="button">
+            <span> BROWSE IMAGE </span>
+          </button>
+        </div>
+
+        <!-- Dynamic file list with progress and actions (like File.png 30.07% style) -->
+        <div class="file-upload-progress">
+          <span class="empty-progress">📂 No files selected</span>
+        </div>
+
+        <!-- UPLOAD / CANCEL buttons row -->
+        <div class="action-buttons">
+          <button class="btn btn-primary" id="uploadBtn">UPLOAD</button>
+          <button class="btn btn-secondary" id="cancelBtn">CANCEL</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
