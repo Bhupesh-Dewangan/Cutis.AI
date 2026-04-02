@@ -350,3 +350,113 @@
     cancelBtn.addEventListener("click", onCancelClick);
 })();
 
+// Contact form submission (front-end)
+(() => {
+    "use strict";
+
+    const firstNameEl = document.getElementById("firstName");
+    const lastNameEl = document.getElementById("lastName");
+    const emailEl = document.getElementById("email");
+    const messageEl = document.getElementById("message");
+    const formEl = document.querySelector(".contact-form");
+
+    if (!firstNameEl || !lastNameEl || !emailEl || !messageEl || !formEl) return;
+
+    let submitting = false;
+
+    function ensureStatusNode() {
+        let node = document.getElementById("contactStatus");
+        if (node) return node;
+
+        node = document.createElement("div");
+        node.id = "contactStatus";
+        node.setAttribute("aria-live", "polite");
+        node.style.marginTop = "14px";
+        node.style.fontFamily = '"Inter", monospace';
+        node.style.fontSize = "0.9rem";
+        node.style.fontWeight = "600";
+        node.style.color = "#94a3b8";
+
+        // Put the status right after the message field for better UX.
+        messageEl.insertAdjacentElement("afterend", node);
+        return node;
+    }
+
+    function setStatus(text, kind) {
+        const statusNode = ensureStatusNode();
+        statusNode.textContent = text;
+        if (kind === "error") statusNode.style.color = "#ef4444";
+        else if (kind === "success") statusNode.style.color = "#10b981";
+        else statusNode.style.color = "#94a3b8";
+    }
+
+    function setFormDisabled(disabled) {
+        [firstNameEl, lastNameEl, emailEl, messageEl].forEach((el) => {
+            el.disabled = disabled;
+        });
+        // Disable submit button if any exists in the form later.
+        const submitBtn = formEl.querySelector("button[type='submit']");
+        if (submitBtn) submitBtn.disabled = disabled;
+    }
+
+    function validate() {
+        const firstName = firstNameEl.value.trim();
+        const lastName = lastNameEl.value.trim();
+        const email = emailEl.value.trim();
+        const message = messageEl.value.trim();
+
+        if (!firstName) return { ok: false, error: "Please enter your first name." };
+        if (!lastName) return { ok: false, error: "Please enter your last name." };
+        if (!email) return { ok: false, error: "Please enter your email." };
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) return { ok: false, error: "Please enter a valid email address." };
+        if (!message) return { ok: false, error: "Please enter a message." };
+        if (message.length < 5) return { ok: false, error: "Message should be at least 5 characters." };
+
+        return { ok: true, data: { firstName, lastName, email, message } };
+    }
+
+    formEl.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        if (submitting) return;
+
+        const result = validate();
+        if (!result.ok) {
+            setStatus(result.error, "error");
+            return;
+        }
+
+        submitting = true;
+        setFormDisabled(true);
+        setStatus("Sending your message...", "info");
+
+        try {
+            // If you later add a backend endpoint, set:
+            //   window.CONTACT_URL = "https://your-api/endpoint";
+            const url = window.CONTACT_URL;
+            if (url) {
+                const res = await fetch(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(result.data),
+                });
+
+                if (!res.ok) {
+                    throw new Error(`Server responded with HTTP ${res.status}`);
+                }
+            } else {
+                // No backend configured => simulate success.
+                await new Promise((r) => setTimeout(r, 1200));
+            }
+
+            setStatus("Message sent! We'll get back to you soon.", "success");
+            formEl.reset();
+        } catch (err) {
+            setStatus(err?.message ? String(err.message) : "Failed to send message.", "error");
+        } finally {
+            submitting = false;
+            setFormDisabled(false);
+        }
+    });
+})();
+
