@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
@@ -8,104 +9,97 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Galindo&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Galindo&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
     <title>CUTIS.AI</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="bg">
-      <div class="circle circle1"></div>
-      <div class="circle circle2"></div>
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
     </div>
     <div class="topbar">
-      <div class="logo">
-        <img src="images/logo.png" alt="logo" class="logo-image" />
-        <span class="title">CUTIS.AI</span>
-      </div>
-      <div class="nav-links">
-        <a href="#">HOME</a>
-        <a href="#">SKIN DISEASES</a>
-        <a href="#">UPLOAD</a>
-        <a href="#">TEAM</a>
-        <a href="#">CONTACT</a>
-      </div>
+        <div class="logo">
+            <img src="images/logo.png" alt="logo" class="logo-image" />
+            <span class="title">CUTIS.AI</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">HOME</a>
+            <a href="#">SKIN DISEASES</a>
+            <a href="#">UPLOAD</a>
+            <a href="#">TEAM</a>
+            <a href="#">CONTACT</a>
+        </div>
     </div>
     <div class="hero-container">
-      <div class="left">
-        <div class="content">
-          <div class="left-content">
-            <div class="hero-text">
-              <h1 class="detect-h1">DETECT</h1>
-              <h1 class="skin-h1">SKIN CONDITIONS</h1>
-              <p class="tag-line">Early, Easily, Instantly</p>
-              <p class="intro-p">
-                AI-powered analysis to help identify potential skin diseases
-                from images.
-              </p>
-              <p class="desc-p">
-                Our system analyzes skin images using advanced machine learning
-                to identify patterns associated with common skin conditions. Get
-                fast, intelligent insights that support early awareness and help
-                you decide when to seek professional care.
-              </p>
+        <div class="left">
+            <div class="content">
+                <div class="left-content">
+                    <div class="hero-text">
+                        <h1 class="detect-h1">DETECT</h1>
+                        <h1 class="skin-h1">SKIN CONDITIONS</h1>
+                        <p class="tag-line">Early, Easily, Instantly</p>
+                        <p class="intro-p">
+                            AI-powered analysis to help identify potential skin diseases
+                            from images.
+                        </p>
+                        <p class="desc-p">
+                            Our system analyzes skin images using advanced machine learning
+                            to identify patterns associated with common skin conditions. Get
+                            fast, intelligent insights that support early awareness and help
+                            you decide when to seek professional care.
+                        </p>
+                    </div>
+                    <button class="start-btn">Get Started</button>
+                </div>
+                <div class="content-right">
+                    <img src="images/Hero-Image.png" alt="Hero Image" class="hero-image" />
+                    <div class="label">
+                        <span>Scan Skin</span>
+                        <span>Detect Early</span>
+                        <span>Stay Aware</span>
+                    </div>
+                </div>
             </div>
-            <button class="start-btn">Get Started</button>
-          </div>
-          <div class="content-right">
-            <img
-              src="images/Hero-Image.png"
-              alt="Hero Image"
-              class="hero-image"
-            />
-            <div class="label">
-              <span>Scan Skin</span>
-              <span>Detect Early</span>
-              <span>Stay Aware</span>
-            </div>
-          </div>
         </div>
-      </div>
 
-      <div class="right">
-        <div class="right-top"></div>
-        <div class="right-bottom"></div>
-        <img src="images/Doctors-logo.png" alt="Doctor Logo" />
-        <p class="rotated-text">AI SKIN ANALYSIS</p>
-      </div>
+        <div class="right">
+            <div class="right-top"></div>
+            <div class="right-bottom"></div>
+            <img src="images/Doctors-logo.png" alt="Doctor Logo" />
+            <p class="rotated-text">AI SKIN ANALYSIS</p>
+        </div>
     </div>
 
     <div class="upload-box">
-      <h1>Upload Photo for Analysis</h1>
-      <p>Upload a close-up, clear image of the affected area</p>
-      <div class="upload-container">
-        <div class="upload-text">Upload image</div>
-        <div class="drop-zone" id="dropZone">
-          <img
-            src="images/upload-img-icon.png"
-            alt="upload-svg"
-            class="upload-img-icon"
-          />
-          <div class="drop-zone-title">Drag & drop your Image here</div>
-          <div class="drop-zone-sub">or</div>
-          <button class="browse-button" id="browseBtn" type="button">
-            <span> BROWSE IMAGE </span>
-          </button>
-        </div>
+        <h1>Upload Photo for Analysis</h1>
+        <p>Upload a close-up, clear image of the affected area</p>
+        <div class="upload-container">
+            <div class="upload-text">Upload image</div>
+            <div class="drop-zone" id="dropZone">
+                <img src="images/upload-img-icon.png" alt="upload-svg" class="upload-img-icon" />
+                <div class="drop-zone-title">Drag & drop your Image here</div>
+                <div class="drop-zone-sub">or</div>
+                <button class="browse-button" id="browseBtn" type="button">
+                    <span> BROWSE IMAGE </span>
+                </button>
+            </div>
 
-        <!-- Dynamic file list with progress and actions (like File.png 30.07% style) -->
-        <div class="file-upload-progress">
-          <span class="empty-progress">📂 No files selected</span>
-        </div>
+            <!-- Dynamic file list with progress and actions (like File.png 30.07% style) -->
+            <div class="file-upload-progress">
+                <span class="empty-progress">📂 No files selected</span>
+            </div>
 
-        <!-- UPLOAD / CANCEL buttons row -->
-        <div class="action-buttons">
-          <button class="btn btn-primary" id="uploadBtn">UPLOAD</button>
-          <button class="btn btn-secondary" id="cancelBtn">CANCEL</button>
+            <!-- UPLOAD / CANCEL buttons row -->
+            <div class="action-buttons">
+                <button class="btn btn-primary" id="uploadBtn">UPLOAD</button>
+                <button class="btn btn-secondary" id="cancelBtn">CANCEL</button>
+            </div>
         </div>
-      </div>
     </div>
 
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>

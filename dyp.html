@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <div class="file-item">
+            <div class="file-info">
+                <div class="file-details">
+                    <div class="file-name" title="${safeName}">${safeName}</div>
+                    <div class="file-meta">
+                        <span class="file-size">Size: ${sanitizeText(size)}</span>
+                        <span>Type: ${type}</span>
+                    </div>
+                    <div class="progress-wrapper" aria-live="polite">
+                        <div class="progress-bar-bg">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <div class="progress-percent">0%</div>
+                    </div>
+                    <div class="upload-status" style="margin-top: 0.35rem; font-size: 0.75rem; color: #94a3b8;">
+                        Ready to upload
+                    </div>
+                </div>
+            </div>
+    
+    </div>
+</body>
+</html>
