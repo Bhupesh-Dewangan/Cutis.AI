@@ -205,6 +205,9 @@
           <span> BROWSE IMAGE </span>
         </button>
       </div>
+      <div id="imagePreviewContainer" class="image-preview" style="display: none;">
+        <img id="imagePreview" src="" alt="Selected preview" />
+      </div>
 
       <!-- Dynamic file list with progress and actions (like File.png 30.07% style) -->
       <div class="file-upload-progress">
@@ -218,27 +221,27 @@
       </div>
 
       <!-- Prediction Result -->
-      <div id="predictionResult" class="prediction-result" style="display: none; margin-top: 2rem; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
-        <h2 style="color: #fff; margin-bottom: 1rem; font-family: 'Barlow', sans-serif;">Analysis Result</h2>
-        <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
-          <div id="resultImageContainer" style="flex: 1; min-width: 200px;">
-            <img id="resultImage" src="" alt="Analyzed Image" style="width: 100%; border-radius: 8px; border: 2px solid #3b82f6;" />
+      <div id="predictionResult" class="prediction-result" style="display: none;">
+        <h2 class="prediction-title">Analysis Result</h2>
+        <div class="prediction-grid">
+          <div id="resultImageContainer" class="prediction-image-wrap">
+            <img id="resultImage" src="" alt="Analyzed Image" class="prediction-image" />
           </div>
-          <div style="flex: 2; min-width: 250px;">
-            <div style="margin-bottom: 1.5rem;">
-              <span style="color: #94a3b8; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Condition Detected</span>
-              <h3 id="detectedClass" style="color: #3b82f6; font-size: 2rem; margin: 0.5rem 0;">-</h3>
+          <div class="prediction-content">
+            <div class="prediction-block">
+              <span class="prediction-label">Condition Detected</span>
+              <h3 id="detectedClass" class="prediction-condition">-</h3>
             </div>
-            <div style="margin-bottom: 1.5rem;">
-              <span style="color: #94a3b8; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Confidence Score</span>
-              <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
-                <div style="flex: 1; height: 8px; background: rgba(255, 255, 255, 0.1); border-radius: 4px; overflow: hidden;">
-                  <div id="confidenceBar" style="height: 100%; background: #3b82f6; width: 0%;"></div>
+            <div class="prediction-block">
+              <span class="prediction-label">Confidence Score</span>
+              <div class="confidence-row">
+                <div class="confidence-track">
+                  <div id="confidenceBar" class="confidence-fill"></div>
                 </div>
-                <span id="confidenceValue" style="color: #fff; font-weight: 700; min-width: 50px;">0%</span>
+                <span id="confidenceValue" class="confidence-value">0%</span>
               </div>
             </div>
-            <p id="resultDisclaimer" style="color: #94a3b8; font-size: 0.85rem; font-style: italic;">
+            <p id="resultDisclaimer" class="prediction-disclaimer">
               Disclaimer: This analysis is for informational purposes only. Please consult a medical professional for an accurate diagnosis.
             </p>
           </div>
@@ -263,8 +266,7 @@
         />
         <h3 class="team-name">Milind Sahu</h3>
         <p class="team-desc">
-          AI Ethics researcher and math minor. Passionate about tech for
-          social good. Tutors first-year CS students.
+          I am a software engineer with a passion for building scalable and efficient systems. I am a quick learner and I am always looking for new challenges.
         </p>
         <div class="team-social-links">
           <a class="team-social-link" href="https://www.instagram.com/milindsahu21/" target="_blank"
@@ -305,8 +307,7 @@
         />
         <h3 class="team-name">Bhupesh Dewangan</h3>
         <p class="team-desc">
-          AI Ethics researcher and math minor. Passionate about tech for
-          social good. Tutors first-year CS students.
+          I'm a Full Stack Developer. I adapt quickly to new technologies and continuously seek opportunities to take on challenging projects and grow my skills.
         </p>
         <div class="team-social-links">
           <a class="team-social-link" href="https://www.instagram.com/bhupesh_dewangan_16/" target="_blank"
@@ -349,10 +350,9 @@
           loading="lazy"
           decoding="async"
         />
-        <h3 class="team-name">Jayyendra Kumar</h3>
+        <h3 class="team-name">Jaynendra Kumar</h3>
         <p class="team-desc">
-          AI Ethics researcher and math minor. Passionate about tech for
-          social good. Tutors first-year CS students.
+          I am a Python Developer passionate about building web applications, with a strong eagerness to learn and take on new challenges.
         </p>
         <div class="team-social-links">
 

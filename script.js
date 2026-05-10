@@ -13,6 +13,8 @@
     const detectedClass = document.getElementById("detectedClass");
     const confidenceBar = document.getElementById("confidenceBar");
     const confidenceValue = document.getElementById("confidenceValue");
+    const imagePreviewContainer = document.getElementById("imagePreviewContainer");
+    const imagePreview = document.getElementById("imagePreview");
 
     if (!dropZone || !browseBtn || !uploadBtn || !cancelBtn || !progressHost) {
         return;
@@ -54,6 +56,10 @@
         progressHost.innerHTML = `<span class="empty-progress">📂 No file selected</span>`;
         uploadBtn.disabled = true;
         if (predictionResult) predictionResult.style.display = "none";
+        if (imagePreviewContainer && imagePreview) {
+            imagePreviewContainer.style.display = "none";
+            imagePreview.removeAttribute("src");
+        }
     }
 
     function renderSelected(file) {
@@ -86,6 +92,18 @@
             </div>
         `;
         if (predictionResult) predictionResult.style.display = "none";
+        showImagePreview(file);
+    }
+
+    function showImagePreview(file) {
+        if (!imagePreviewContainer || !imagePreview || !file) return;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            imagePreview.src = e.target.result;
+            imagePreviewContainer.style.display = "block";
+        };
+        reader.readAsDataURL(file);
     }
 
     function setUploadingUI(percent) {
@@ -212,17 +230,22 @@
         if (!predictionResult) return;
 
         detectedClass.textContent = data.predicted_class;
-        confidenceValue.textContent = data.confidence_percentage;
-        confidenceBar.style.width = data.confidence_percentage;
-        
-        // Show the image that was uploaded
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            resultImage.src = e.target.result;
-            predictionResult.style.display = "block";
-            predictionResult.scrollIntoView({ behavior: 'smooth' });
-        };
-        reader.readAsDataURL(state.file);
+        const confidenceText = data.confidence_percentage || "0%";
+        confidenceValue.textContent = confidenceText;
+        confidenceBar.style.width = confidenceText;
+
+        if (imagePreview && imagePreview.src) {
+            resultImage.src = imagePreview.src;
+        } else if (state.file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                resultImage.src = e.target.result;
+            };
+            reader.readAsDataURL(state.file);
+        }
+
+        predictionResult.style.display = "block";
+        predictionResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
 
         const statusText = progressHost.querySelector(".upload-status");
         if (statusText) statusText.textContent = "Analysis complete!";
