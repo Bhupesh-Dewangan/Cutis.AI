@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="conditions.css" />
   <link rel="icon" type="image/x-icon" href="images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,7 +24,8 @@
       <img src="images/logo.png" alt="logo" class="logo-image" />
       <span class="title">CUTIS.AI</span>
     </div>
-    <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
+      aria-controls="mainNav">
       <span></span>
       <span></span>
       <span></span>
@@ -69,13 +69,13 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="right">
-      <div class="right-top"></div>
-      <div class="right-bottom"></div>
-      <img src="images/Doctors-logo.png" alt="Doctor Logo" />
-      <p class="rotated-text">AI SKIN ANALYSIS</p>
-    </div>
+  <div class="right">
+    <div class="right-top"></div>
+    <div class="right-bottom"></div>
+    <img src="images/Doctors-logo.png" alt="Doctor Logo" />
+    <p class="rotated-text">AI SKIN ANALYSIS</p>
   </div>
 
   <!-- Conditions we detect -->
@@ -213,21 +213,22 @@
       <div class="file-upload-progress">
         <span class="empty-progress">📂 No files selected</span>
       </div>
-
       <!-- UPLOAD / CANCEL buttons row -->
       <div class="action-buttons">
         <button class="btn btn-primary" id="uploadBtn">UPLOAD</button>
         <button class="btn btn-secondary" id="cancelBtn">CANCEL</button>
       </div>
+    </div>
 
-      <!-- Prediction Result -->
-      <div id="predictionResult" class="prediction-result" style="display: none;">
-        <h2 class="prediction-title">Analysis Result</h2>
-        <div class="prediction-grid">
-          <div id="resultImageContainer" class="prediction-image-wrap">
-            <img id="resultImage" src="" alt="Analyzed Image" class="prediction-image" />
+    <!-- Prediction Result -->
+    <div id="predictionResult" class="prediction-result" style="display: none;">
+      <h2 class="prediction-title">Analysis Result</h2>
+      <div class="prediction-inner-card">
+        <div class="prediction-top-row">
+          <div id="resultImageContainer" class="result-image-container">
+            <img id="resultImage" src="" alt="Analyzed Image" class="result-image" />
           </div>
-          <div class="prediction-content">
+          <div class="prediction-blocks">
             <div class="prediction-block">
               <span class="prediction-label">Condition Detected</span>
               <h3 id="detectedClass" class="prediction-condition">-</h3>
@@ -241,11 +242,20 @@
                 <span id="confidenceValue" class="confidence-value">0%</span>
               </div>
             </div>
-            <p id="resultDisclaimer" class="prediction-disclaimer">
-              Disclaimer: This analysis is for informational purposes only. Please consult a medical professional for an accurate diagnosis.
-            </p>
           </div>
         </div>
+        <div class="prediction-disclaimer-card">
+          <span class="disclaimer-label">Disclaimer:</span>
+          <p id="resultDisclaimer" class="prediction-disclaimer"
+            style="color: #dc0d0dff; font-size: 0.75rem; font-weight: 500;">
+            This analysis is for informational purposes only. Please consult a medical professional for an accurate
+            diagnosis.
+          </p>
+        </div>
+      </div>
+      <div class="prediction-actions">
+        <button type="button" class="btn btn-primary" id="retryBtn">RETRY</button>
+        <button type="button" class="btn btn-secondary" id="resultCancelBtn">CANCEL</button>
       </div>
     </div>
   </div>
@@ -255,18 +265,12 @@
     <h2 class="team-title">MEET OUT TEAM</h2>
     <div class="team-cards">
       <article class="team-card">
-        <img
-          class="team-avatar"
-          src="images/team/Milind_pic.png"
-          alt="Milind Sahu"
-          width="160"
-          height="160"
-          loading="lazy"
-          decoding="async"
-        />
+        <img class="team-avatar" src="images/team/Milind_pic.png" alt="Milind Sahu" width="160" height="160"
+          loading="lazy" decoding="async" />
         <h3 class="team-name">Milind Sahu</h3>
         <p class="team-desc">
-          I am a software engineer with a passion for building scalable and efficient systems. I am a quick learner and I am always looking for new challenges.
+          I am a software engineer with a passion for building scalable and efficient systems. I am a quick learner and
+          I am always looking for new challenges.
         </p>
         <div class="team-social-links">
           <a class="team-social-link" href="https://www.instagram.com/milindsahu21/" target="_blank"
@@ -296,18 +300,12 @@
       </article>
 
       <article class="team-card">
-        <img
-          class="team-avatar"
-          src="images/team/Bhupesh_pic.png"
-          alt="Bhupesh Dewangan"
-          width="160"
-          height="160"
-          loading="lazy"
-          decoding="async"
-        />
+        <img class="team-avatar" src="images/team/Bhupesh_pic.png" alt="Bhupesh Dewangan" width="160" height="160"
+          loading="lazy" decoding="async" />
         <h3 class="team-name">Bhupesh Dewangan</h3>
         <p class="team-desc">
-          I'm a Full Stack Developer. I adapt quickly to new technologies and continuously seek opportunities to take on challenging projects and grow my skills.
+          I'm a Full Stack Developer. I adapt quickly to new technologies and continuously seek opportunities to take on
+          challenging projects and grow my skills.
         </p>
         <div class="team-social-links">
           <a class="team-social-link" href="https://www.instagram.com/bhupesh_dewangan_16/" target="_blank"
@@ -341,18 +339,12 @@
       </article>
 
       <article class="team-card">
-        <img
-          class="team-avatar"
-          src="images/team/Jaynendra_pic.png"
-          alt="Jayyendra Kumar"
-          width="160"
-          height="160"
-          loading="lazy"
-          decoding="async"
-        />
+        <img class="team-avatar" src="images/team/Jaynendra_pic.png" alt="Jayyendra Kumar" width="160" height="160"
+          loading="lazy" decoding="async" />
         <h3 class="team-name">Jaynendra Kumar</h3>
         <p class="team-desc">
-          I am a Python Developer passionate about building web applications, with a strong eagerness to learn and take on new challenges.
+          I am a Python Developer passionate about building web applications, with a strong eagerness to learn and take
+          on new challenges.
         </p>
         <div class="team-social-links">
 

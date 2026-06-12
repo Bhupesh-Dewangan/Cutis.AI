@@ -15,6 +15,8 @@
     const confidenceValue = document.getElementById("confidenceValue");
     const imagePreviewContainer = document.getElementById("imagePreviewContainer");
     const imagePreview = document.getElementById("imagePreview");
+    const retryBtn = document.getElementById("retryBtn");
+    const resultCancelBtn = document.getElementById("resultCancelBtn");
 
     if (!dropZone || !browseBtn || !uploadBtn || !cancelBtn || !progressHost) {
         return;
@@ -56,6 +58,10 @@
         progressHost.innerHTML = `<span class="empty-progress">📂 No file selected</span>`;
         uploadBtn.disabled = true;
         if (predictionResult) predictionResult.style.display = "none";
+        const uploadContainer = document.querySelector(".upload-container");
+        if (uploadContainer) {
+            uploadContainer.style.display = "flex";
+        }
         if (imagePreviewContainer && imagePreview) {
             imagePreviewContainer.style.display = "none";
             imagePreview.removeAttribute("src");
@@ -92,6 +98,10 @@
             </div>
         `;
         if (predictionResult) predictionResult.style.display = "none";
+        const uploadContainer = document.querySelector(".upload-container");
+        if (uploadContainer) {
+            uploadContainer.style.display = "flex";
+        }
         showImagePreview(file);
     }
 
@@ -187,44 +197,36 @@
     uploadBtn.addEventListener("click", () => {
         if (!state.file) return;
         
-        const formData = new FormData();
-        formData.append("file", state.file);
-
-        const xhr = new XMLHttpRequest();
-        state.xhr = xhr;
-
-        xhr.open("POST", "/api/predict", true);
-
-        xhr.upload.onprogress = (ev) => {
-            if (ev.lengthComputable) {
-                setUploadingUI((ev.loaded / ev.total) * 90); // Use 90% for upload, 10% for processing
-            }
-        };
-
-        xhr.onload = () => {
-            if (xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                if (response.success) {
-                    setUploadingUI(100);
-                    displayResult(response);
-                } else {
-                    setErrorUI(response.error || "Unknown error occurred");
-                }
+        // Mock prediction upload for testing
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 20;
+            if (progress < 100) {
+                setUploadingUI(progress * 0.9);
             } else {
-                setErrorUI(`Server error: ${xhr.status}`);
+                clearInterval(interval);
+                setUploadingUI(100);
+                displayResult({
+                    success: true,
+                    predicted_class: "Chickenpox",
+                    confidence_percentage: "77.48%"
+                });
             }
-            state.xhr = null;
-        };
-
-        xhr.onerror = () => {
-            setErrorUI("Network error occurred");
-            state.xhr = null;
-        };
-
-        xhr.send(formData);
+        }, 150);
     });
 
     cancelBtn.addEventListener("click", renderEmpty);
+
+    if (retryBtn) {
+        retryBtn.addEventListener("click", () => {
+            renderEmpty();
+            browseBtn.click();
+        });
+    }
+
+    if (resultCancelBtn) {
+        resultCancelBtn.addEventListener("click", renderEmpty);
+    }
 
     function displayResult(data) {
         if (!predictionResult) return;
@@ -244,7 +246,11 @@
             reader.readAsDataURL(state.file);
         }
 
-        predictionResult.style.display = "block";
+        predictionResult.style.display = "flex";
+        const uploadContainer = document.querySelector(".upload-container");
+        if (uploadContainer) {
+            uploadContainer.style.display = "none";
+        }
         predictionResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
 
         const statusText = progressHost.querySelector(".upload-status");
